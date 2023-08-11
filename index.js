@@ -8,8 +8,16 @@ if(!deviceName) {
   process.exit();
 }
 
-const Wyze = require('wyze-node');
+try {
+  require('./.config')
+} catch(error) {
+  console.log('Ensure you have a `.config.json` file with your wyze creds in this folder. Check the README.md for an example');
+  process.exit();
+}
+
 const config = require('./.config');
+
+const Wyze = require('wyze-node');
 const ffmpeg = require('fluent-ffmpeg');
 const axios = require('axios');
 const fs = require('fs');
