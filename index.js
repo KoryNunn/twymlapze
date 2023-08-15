@@ -227,7 +227,7 @@ let latestDate = filePaths.map(filePath => {
 
 if (!latestDate) {
   console.log(`No existing downloads, getting the last 20 days worth`);
-  const latestDate = new Date();
+  latestDate = new Date();
   latestDate.setDate(latestDate.getDate() - 20);
 }
 
